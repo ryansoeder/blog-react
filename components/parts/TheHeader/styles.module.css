@@ -1,0 +1,9 @@
+.header {
+	padding: 2rem;
+}
+.navContainer {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
