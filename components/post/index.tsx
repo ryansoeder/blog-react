@@ -1,3 +1,4 @@
+// Components
 import {
 	Card,
 	CardContent,
@@ -8,8 +9,10 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
+// Styles
 import styles from './styles.module.css';
 
+// Types
 import type { Post } from '@/types/types';
 
 export default function Post({ title, date, copy, tags }: Post) {
