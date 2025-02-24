@@ -7,27 +7,23 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+
 import styles from './styles.module.css';
 
-export default function Post({
-	postTitle,
-	postCopy,
-	postCategories,
-}: {
-	postTitle: string;
-	postCopy: string;
-	postCategories: string[];
-}) {
+import type { Post } from '@/types/types';
+
+export default function Post({ title, date, copy, tags }: Post) {
 	return (
 		<Card>
 			<CardHeader>
-				<CardTitle>{postTitle}</CardTitle>
+				<CardTitle>{title}</CardTitle>
 			</CardHeader>
 			<CardContent>
-				<CardDescription>{postCopy}</CardDescription>
+				<span>{date}</span>
+				<CardDescription>{copy}</CardDescription>
 			</CardContent>
 			<CardFooter>
-				{postCategories.map((category: string, index: number) => {
+				{tags.map((category: string, index: number) => {
 					return (
 						<Badge className={styles.badge} key={index} variant='outline'>
 							{category}
