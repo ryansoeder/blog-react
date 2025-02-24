@@ -15,14 +15,14 @@ import styles from './styles.module.css';
 // Types
 import type { Post } from '@/types/types';
 
-export default function Post({ title, date, copy, tags }: Post) {
+export default function Post({ title, post_date, copy, tags }: Post) {
 	return (
 		<Card>
 			<CardHeader>
 				<CardTitle>{title}</CardTitle>
 			</CardHeader>
 			<CardContent>
-				<span>{date}</span>
+				<span>{post_date}</span>
 				<CardDescription>{copy}</CardDescription>
 			</CardContent>
 			<CardFooter>

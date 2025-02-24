@@ -16,6 +16,7 @@ import type { Post as PostType } from '@/types/types';
 
 export default function posts({ posts }: { posts: Promise<PostType[]> }) {
 	const allPosts = use(posts);
+	console.log(allPosts);
 	return (
 		<>
 			<div className={styles.searchContainer}>
@@ -29,7 +30,7 @@ export default function posts({ posts }: { posts: Promise<PostType[]> }) {
 							key={(post as PostType).id}
 							id={(post as PostType).id}
 							title={(post as PostType).title}
-							date={(post as PostType).date}
+							post_date={(post as PostType).post_date}
 							copy={(post as PostType).copy}
 							tags={(post as PostType).tags}
 						/>
