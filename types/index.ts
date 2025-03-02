@@ -5,3 +5,4 @@ export interface Post {
 	post_date: string;
 	tags: string[];
 }
+export type Posts = Post[];

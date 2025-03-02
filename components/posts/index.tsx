@@ -12,7 +12,7 @@ import Post from '@/components/postCard';
 import styles from './styles.module.css';
 
 // Types
-import type { Post as PostType } from '@/types/types';
+import type { Post as PostType } from '@/types';
 
 export default function posts({ posts }: { posts: Promise<PostType[]> }) {
 	// State

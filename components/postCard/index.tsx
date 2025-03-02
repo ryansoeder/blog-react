@@ -13,7 +13,7 @@ import { Badge } from '@/components/ui/badge';
 import styles from './styles.module.css';
 
 // Types
-import type { Post } from '@/types/types';
+import type { Post } from '@/types';
 
 export default function Post({ title, post_date, content, tags }: Post) {
 	// Friendly date
