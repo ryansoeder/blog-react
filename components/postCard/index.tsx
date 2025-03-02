@@ -26,20 +26,20 @@ export default function Post({ title, post_date, content, tags }: Post) {
 		<Card>
 			<CardHeader>
 				<CardTitle>{title}</CardTitle>
+				<div className='badge-conainer'>
+					{tags.map((category: string, index: number) => {
+						return (
+							<Badge className={styles.badge} key={index} variant='outline'>
+								{category}
+							</Badge>
+						);
+					})}
+				</div>
 			</CardHeader>
 			<CardContent>
 				<span>{displayDate}</span>
 				<CardDescription>{content.substring(0, 300)}...</CardDescription>
 			</CardContent>
-			<CardFooter>
-				{tags.map((category: string, index: number) => {
-					return (
-						<Badge className={styles.badge} key={index} variant='outline'>
-							{category}
-						</Badge>
-					);
-				})}
-			</CardFooter>
 		</Card>
 	);
 }
