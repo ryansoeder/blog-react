@@ -2,10 +2,10 @@
 
 // React
 import { use } from 'react';
+import { useState } from 'react';
 
 // Components
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import SearchContainer from '@/components/searchContainer';
 import Post from '@/components/post';
 
 // Styles
@@ -15,14 +15,15 @@ import styles from './styles.module.css';
 import type { Post as PostType } from '@/types/types';
 
 export default function posts({ posts }: { posts: Promise<PostType[]> }) {
+	const [searchValue, setSearchValue] = useState('');
+	const onSearch = (value: string) => {
+		setSearchValue(value);
+	};
 	const allPosts = use(posts);
 	console.log(allPosts);
 	return (
 		<>
-			<div className={styles.searchContainer}>
-				<Input className={styles.searchInput} type='search' placeholder='search...' />
-				<Button>submit</Button>
-			</div>
+			<SearchContainer onSearch={onSearch} />
 			<div className={styles.postsContainer}>
 				{allPosts.map((post, index) => {
 					return (

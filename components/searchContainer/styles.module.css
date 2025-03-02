@@ -1,0 +1,11 @@
+.searchContainer {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	width: 100%;
+	.searchInput {
+		max-width: 20rem;
+		width: 100%;
+	}
+}
