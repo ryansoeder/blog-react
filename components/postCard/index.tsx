@@ -15,15 +15,21 @@ import styles from './styles.module.css';
 // Types
 import type { Post } from '@/types/types';
 
-export default function Post({ title, post_date, copy, tags }: Post) {
+export default function Post({ title, post_date, content, tags }: Post) {
+	// Friendly date
+	const displayDate = new Date(post_date).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	});
 	return (
 		<Card>
 			<CardHeader>
 				<CardTitle>{title}</CardTitle>
 			</CardHeader>
 			<CardContent>
-				<span>{post_date}</span>
-				<CardDescription>{copy}</CardDescription>
+				<span>{displayDate}</span>
+				<CardDescription>{content.substring(0, 300)}...</CardDescription>
 			</CardContent>
 			<CardFooter>
 				{tags.map((category: string, index: number) => {

@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 // Components
 import SearchContainer from '@/components/searchContainer';
-import Post from '@/components/post';
+import Post from '@/components/postCard';
 
 // Styles
 import styles from './styles.module.css';
@@ -15,24 +15,36 @@ import styles from './styles.module.css';
 import type { Post as PostType } from '@/types/types';
 
 export default function posts({ posts }: { posts: Promise<PostType[]> }) {
+	// State
 	const [searchValue, setSearchValue] = useState('');
+
+	// Functions
 	const onSearch = (value: string) => {
 		setSearchValue(value);
 	};
+
+	// Posts search/filter
 	const allPosts = use(posts);
-	console.log(allPosts);
+	const filteredPosts = allPosts.filter((post) => {
+		return (
+			post.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+			post.content.toLowerCase().includes(searchValue.toLowerCase())
+		);
+	});
+	const displayPosts = searchValue ? filteredPosts : allPosts;
+
 	return (
 		<>
 			<SearchContainer onSearch={onSearch} />
 			<div className={styles.postsContainer}>
-				{allPosts.map((post, index) => {
+				{displayPosts.map((post) => {
 					return (
 						<Post
 							key={(post as PostType).id}
 							id={(post as PostType).id}
 							title={(post as PostType).title}
 							post_date={(post as PostType).post_date}
-							copy={(post as PostType).copy}
+							content={(post as PostType).content}
 							tags={(post as PostType).tags}
 						/>
 					);

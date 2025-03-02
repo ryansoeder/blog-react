@@ -1,7 +1,7 @@
 export interface Post {
 	id: string;
 	title: string;
-	copy: string;
+	content: string;
 	post_date: string;
 	tags: string[];
 }
