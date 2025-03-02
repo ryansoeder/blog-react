@@ -16,12 +16,14 @@ export default function TheHeader() {
 	return (
 		<header className={styles.header}>
 			<div className={styles.navContainer}>
-				<h1>Blog</h1>
+				<h1>
+					<Link href='/'>Blog</Link>
+				</h1>
 				<NavigationMenu>
 					<NavigationMenuList>
 						<NavigationMenuItem>
-							<Link href='/docs' legacyBehavior passHref>
-								<NavigationMenuLink className='tim'></NavigationMenuLink>
+							<Link href='/about'>
+								<NavigationMenuLink className='tim'>About</NavigationMenuLink>
 							</Link>
 						</NavigationMenuItem>
 					</NavigationMenuList>
